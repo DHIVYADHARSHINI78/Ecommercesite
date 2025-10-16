@@ -17,8 +17,8 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white shadow-md rounded p-8 text-center">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+      <div className="bg-white shadow-md rounded p-28 text-center border-2 border-black">
+        <h1 className="md:text-2xl font-bold mb-4">Welcome To Our Ecommerce Website </h1>
         <button
           onClick={handleGoogleLogin}
           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -29,3 +29,5 @@ export default function Login() {
     </div>
   );
 }
+
+

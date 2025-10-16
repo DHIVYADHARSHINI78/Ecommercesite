@@ -1,6 +1,10 @@
+
+
+
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { getProducts } from "../api/products";
+import productList from "../data/products";
+
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
 
@@ -18,11 +22,8 @@ export default function Dashboard() {
     const currentUser = auth.currentUser;
     if (currentUser) setUser(currentUser);
 
-    const fetchProducts = async () => {
-      const data = await getProducts();
-      setProducts(data);
-    };
-    fetchProducts();
+  
+    setProducts(productList);
   }, []);
 
   
@@ -30,10 +31,12 @@ export default function Dashboard() {
     if (!cart.find((p) => p.id === product.id)) setCart([...cart, product]);
   };
 
+
   const addToWishlist = (product) => {
     if (!wishlist.find((p) => p.id === product.id))
       setWishlist([...wishlist, product]);
   };
+
 
   const confirmOrder = () => {
     if (cart.length > 0) {
@@ -42,7 +45,6 @@ export default function Dashboard() {
       alert("Order confirmed!");
     }
   };
-
 
   let displayedProducts = [...products];
   if (search) {
@@ -64,9 +66,10 @@ export default function Dashboard() {
         />
       )}
 
+    
       {view === "products" && (
         <div>
-          <div className="flex gap-4 mb-4">
+          <div className="flex gap-4 mb-4 flex-col sm:flex-row">
             <input
               type="text"
               placeholder="Search products..."
@@ -98,6 +101,7 @@ export default function Dashboard() {
         </div>
       )}
 
+     
       {view === "cart" && (
         <div>
           <h2 className="text-xl font-semibold mb-3">Cart</h2>
@@ -108,7 +112,7 @@ export default function Dashboard() {
               {cart.map((p) => (
                 <div key={p.id} className="p-2 border flex justify-between">
                   <span>{p.name}</span>
-                  <span>${p.price}</span>
+                  <span>₹{p.price}</span>
                 </div>
               ))}
               <button
@@ -122,6 +126,7 @@ export default function Dashboard() {
         </div>
       )}
 
+      
       {view === "wishlist" && (
         <div>
           <h2 className="text-xl font-semibold mb-3">Wishlist</h2>
@@ -130,7 +135,7 @@ export default function Dashboard() {
           ) : (
             wishlist.map((p) => (
               <div key={p.id} className="p-2 border-b">
-                {p.name} - ${p.price}
+                {p.name} - ₹{p.price}
               </div>
             ))
           )}
@@ -145,12 +150,12 @@ export default function Dashboard() {
           ) : (
             orderHistory.map((p, idx) => (
               <div key={idx} className="p-2 border-b">
-                {p.name} - ${p.price}
+                {p.name} - ₹{p.price}
               </div>
             ))
           )}
         </div>
       )}
-    </div>
-  );
+    </div>
+  );
 }
