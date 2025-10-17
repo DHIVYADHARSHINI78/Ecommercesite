@@ -1,16 +1,8 @@
-# React + Vite
+This project is a complete e-commerce web application built using React.js, Firebase Authentication, and a local JavaScript data file (products.js) for managing product details. It provides users with a smooth and responsive shopping experience across all devices. The app includes key features like Google Login, dynamic product display, search and sort options, cart and wishlist management, checkout with address selection, and an order tracking dashboard.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Users can securely sign in using Google through Firebase and browse various products loaded directly from the local data file. They can add products to the cart or wishlist, manage multiple addresses, and confirm orders without a payment gateway. Once the order is confirmed, it is moved to the “Order History” section where users can track its status. Each product has stock validation — if the stock is zero, it cannot be added to the cart or wishlist.
 
-Currently, two official plugins are available:
+For admin simulation, the dashboard allows updating order statuses such as On Process, Shipped, or Delivered, and users can see the live updates in their order history. The interface is built with Tailwind CSS for modern and fully responsive design, while React Hooks efficiently handle state and interactions. This project demonstrates practical e-commerce functionality suitable for learning and showcasing React development skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Live Link - https://ecommercewithfirebaselogin.netlify.app/
